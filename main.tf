@@ -29,3 +29,12 @@ resource "aws_vpc" "main_vpc" {
   }
 }
 }
+
+resource "aws_instance" "my_ec2_instance" {
+  ami           = "ami-0abcdef1234567890" # Replace with a valid AMI ID for your region
+  instance_type = "t2.micro"             # Specify the instance type
+  key_name      = "my-key-pair"          # Replace with your existing EC2 key pair name
+  tags = {
+    Name = "MyTerraformInstance"
+  }
+}
